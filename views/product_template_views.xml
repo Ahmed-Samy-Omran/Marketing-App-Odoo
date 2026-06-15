@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_view_sms_inherit" model="ir.ui.view">
+        <field name="name">product.template.form.sms.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Create a new dedicated tab after General Information -->
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page string="Supermarket Limits" name="sms_limits">
+                    <group string="Safety Stock Configuration">
+                        <div class="alert alert-info d-flex align-items-center mb-3" role="alert" style="font-size: 1.1em;">
+                            <i class="fa fa-info-circle fa-2x text-info me-3"></i>
+                            <div>
+                                <strong>Management Tip:</strong> Use these limits to automate your restocking process.
+                            </div>
+                        </div>
+                        <group>
+                            <field name="min_stock" style="font-size: 1.2em; font-weight: bold; color: #d9534f;"/>
+                            <field name="max_stock" style="font-size: 1.2em; font-weight: bold; color: #5cb85c;"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

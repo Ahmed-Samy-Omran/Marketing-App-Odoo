@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    <menuitem id="menu_supermarket_inventory_root"-->
+    <!--              name="Supermarket"-->
+    <!--              sequence="10"-->
+    <!--              groups="stock.group_stock_user"/>-->
+
+    <!--    <menuitem id="menu_supermarket_inventory_products"-->
+    <!--              name="Products"-->
+    <!--              parent="menu_supermarket_inventory_root"-->
+    <!--              action="product.product_template_action"-->
+    <!--              sequence="10"-->
+    <!--              groups="stock.group_stock_user"/>-->
+    <menuitem id="menu_supermarket_inventory_root"
+              name="Supermarket"
+              sequence="10"/>
+
+    <menuitem id="menu_supermarket_inventory_products"
+              name="Products"
+              parent="menu_supermarket_inventory_root"
+              action="product.product_template_action"
+              sequence="10"/>
+</odoo>
