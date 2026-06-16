@@ -15,7 +15,7 @@ class ProductTemplate(models.Model):
         default=0.0,
         help='The maximum desired stock level for this product.'
     )
-
+    #validation in case create or update
     @api.constrains('min_stock', 'max_stock')
     def _check_stock_thresholds(self):
         for product in self:
@@ -24,6 +24,7 @@ class ProductTemplate(models.Model):
             if product.max_stock < product.min_stock:
                 raise ValidationError('Maximum safety stock cannot be less than minimum safety stock.')
 
+    #cron job to check low stock
     def cron_check_low_stock(self):
         """
         This function is called by a Scheduled Action (Cron).
@@ -31,7 +32,7 @@ class ProductTemplate(models.Model):
         """
         low_stock_products = self.search([('type', '=', 'product')]) # Only storable products
         for product in low_stock_products:
-            if product.qty_available < product.min_stock:
+            if product.qty_available < product.min_stock: #qty_available come from stock in mainfest (data)
                 # Create a notification (Activity)
                 self.env['mail.activity'].create({
                     'res_id': product.id,

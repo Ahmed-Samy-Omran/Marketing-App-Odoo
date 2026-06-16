@@ -26,7 +26,7 @@
 # }
 # -*- coding: utf-8 -*-
 {
-    'name': 'Supermarket Inventory & Product Management',
+    'name': 'Supermarket App',
     'version': '17.0.1.0.0',
     'category': 'Inventory/Inventory',
     'summary': 'Core Product and Inventory Management for SMS (Phase 1)',

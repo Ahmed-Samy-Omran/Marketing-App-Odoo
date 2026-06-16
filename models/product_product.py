@@ -12,7 +12,7 @@ class ProductProduct(models.Model):
         help="Unique identifier for scanning at checkout."
     )
 
-    # 2. Database-level uniqueness check
+    # 2. Database-level uniqueness check it will prevent duplicate barcode it works at database level
     _sql_constraints = [
         ('barcode_unique', 'unique(barcode)', 'Error: This barcode is already assigned to another product!')
     ]
